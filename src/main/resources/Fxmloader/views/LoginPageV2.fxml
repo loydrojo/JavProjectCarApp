@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CarApplication.User.Controllers.MenuPageController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.20001220703125" minWidth="10.0" prefWidth="130.400048828125" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="452.00000000000006" minWidth="10.0" prefWidth="353.599951171875" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.79998779296875" minWidth="10.0" prefWidth="115.1999633789062" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="128.59998168945313" minHeight="0.0" prefHeight="61.39998779296875" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="266.8" minHeight="10.0" prefHeight="166.20001220703125" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="201.2000030517578" minHeight="10.0" prefHeight="160.40001525878904" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <AnchorPane prefHeight="114.0" prefWidth="354.0" GridPane.columnIndex="1">
+         <children>
+            <Label alignment="CENTER" layoutX="91.0" layoutY="20.0" text="Sign in Account">
+               <font>
+                  <Font name="Bell MT" size="26.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="162.0" prefWidth="354.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <children>
+            <TextField fx:id="loginUsername" layoutX="45.0" layoutY="15.0" prefHeight="31.0" prefWidth="262.0" promptText="Username" />
+            <PasswordField fx:id="loginPassword1" layoutX="47.0" layoutY="67.0" prefHeight="31.0" prefWidth="262.0" promptText="Password" />
+            <TextField fx:id="loginPassword2" prefHeight="31.0" prefWidth="262.0" promptText="Password" translateX="47.0" translateY="70.0" visible="false">
+               <cursor>
+                  <Cursor fx:constant="NONE" />
+               </cursor>
+            </TextField>
+            <CheckBox fx:id="showPassword" layoutX="25.0" layoutY="101.0" mnemonicParsing="false" onAction="#functionShowPassword" prefHeight="16.0" prefWidth="151.0" text="Show Password" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <children>
+            <Button fx:id="ginRegisterProceedBTN" layoutX="140.0" layoutY="14.0" mnemonicParsing="false" onAction="#functionLoginBTN" prefWidth="63.0" text="Login" />
+            <Label layoutX="124.0" layoutY="50.0" prefHeight="31.0" prefWidth="95.0" text="Register Account" />
+            <Button fx:id="loginRegisterProceedBTN" layoutX="142.0" layoutY="82.0" mnemonicParsing="false" onAction="#functionRegisterBTN" text="Register" />
+         </children>
+      </AnchorPane>
+   </children>
+</GridPane>
