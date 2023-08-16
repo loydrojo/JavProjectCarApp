@@ -13,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.Objects;
 
 public class RegisterPageController {
 
@@ -37,7 +38,8 @@ public class RegisterPageController {
     @FXML
     private TextField registerUsername;
 
-    private UserList userList; // Reference to the UserList instance
+
+    private UserList userList = UserList.getInstance(); // U
 
     public void setUserList(UserList userList) {
         this.userList = userList;
@@ -50,15 +52,12 @@ public class RegisterPageController {
         String password = registerPassword.getText();
         String confirmPassword = registerConfirmPassword.getText();
 
-        if (firstName.isEmpty() || lastName.isEmpty() || username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
-            showAlert("All fields are required.");
-        } else if (password.length() < 8) {
-            showAlert("Password must be at least 8 characters long.");
-        } else if (!password.equals(confirmPassword)) {
-            showAlert("Passwords do not match.");
-        } else {
+        if (Objects.equals(password, confirmPassword)) {
+            userList.addUser(username, password);
             showAlert("Registration successful!");
             clearFields();
+        } else {
+            showAlert("Passwords do not match.");
         }
     }
 

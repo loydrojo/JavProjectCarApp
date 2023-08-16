@@ -1,32 +1,38 @@
 package CarApplication.User.List;
 
-import CarApplication.User.List.User;
+import java.util.ArrayList;
+import java.util.List;
 
-import java.util.HashMap;
-import java.util.Map;
-
-/**
- *
- */
 public class UserList {
-    private Map<String, User> userMap; // Use a Map to store users by username
+    private static UserList instance;
+    private List<User> userList;
 
-    public UserList() {
-        userMap = new HashMap<>();
+    private UserList() {
+        userList = new ArrayList<>();
     }
 
-    public void addUser(User user) {
-        userMap.put(user.getUsername(), user);
+    public static UserList getInstance() {
+        if (instance == null) {
+            instance = new UserList();
+        }
+        return instance;
+    }
+
+    public void addUser(String username, String password) {
+        userList.add(new User(username, password));
     }
 
     public User findUserByUsername(String username) {
-        return userMap.get(username);
+        for (User user : userList) {
+            if (user.getUsername().equals(username)) {
+                return user;
+            }
+        }
+        return null;
     }
 
-    @Override
-    public String toString() {
-        return "UserList{" +
-                "userMap=" + userMap +
-                '}';
+    public boolean authenticateUser(String username, String password) {
+        User user = findUserByUsername(username);
+        return user != null && user.getPassword().equals(password);
     }
 }

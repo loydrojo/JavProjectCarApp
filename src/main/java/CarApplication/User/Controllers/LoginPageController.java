@@ -13,7 +13,16 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class LoginPageController extends UserList {
+public class LoginPageController {
+    @FXML
+    private TextField loginUsername;
+
+    @FXML
+    private PasswordField loginPassword;
+
+    private UserList userList = UserList.getInstance(); // Using Singleton
+
+
 
     @FXML
     private Button loginPageBTN;
@@ -27,18 +36,11 @@ public class LoginPageController extends UserList {
     @FXML
     private Button loginRegisterProceedBTN;
 
-    @FXML
-    private TextField loginUsername;
 
     @FXML
     private CheckBox showPassword;
     @FXML
     private String username, password, showPasswordtxt;
-
-    @FXML
-    private PasswordField loginPassword;
-
-    private UserList userList; // Reference to the UserList instance
 
 
 
@@ -48,21 +50,14 @@ public class LoginPageController extends UserList {
     @FXML
     private void functionLoginBTN(ActionEvent event) {
         String enteredUsername = loginUsername.getText();
-        String enteredPassword = loginPassword1.getText();
+        String enteredPassword = loginPassword.getText();
 
         if (enteredUsername.isEmpty() || enteredPassword.isEmpty()) {
             showAlert("Please enter both username and password");
             return;
         }
 
-        if (userList == null) {
-            showAlert("User list is not initialized");
-            return;
-        }
-
-        User user = userList.findUserByUsername(enteredUsername);
-
-        if (user != null && user.getPassword().equals(enteredPassword)) {
+        if (userList.authenticateUser(enteredUsername, enteredPassword)) {
             // Authentication successful, proceed to the next pane
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("/Fxmloader/views/HomePageView.fxml"));
@@ -95,9 +90,9 @@ public class LoginPageController extends UserList {
     @FXML
     void functionShowPassword(ActionEvent event) {
         boolean show = showPassword.isSelected();
-        String currentPassword = loginPassword1.getText();
+        String currentPassword = loginPassword.getText();
 
-        loginPassword1.setVisible(!show);
+        loginPassword.setVisible(!show);
         loginPassword2.setVisible(show);
 
         if (show) {

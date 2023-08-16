@@ -36,7 +36,7 @@
       <AnchorPane prefHeight="162.0" prefWidth="354.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
             <TextField fx:id="loginUsername" layoutX="45.0" layoutY="15.0" prefHeight="31.0" prefWidth="262.0" promptText="Username" />
-            <PasswordField fx:id="loginPassword1" layoutX="47.0" layoutY="67.0" prefHeight="31.0" prefWidth="262.0" promptText="Password" />
+            <PasswordField fx:id="loginPassword" layoutX="47.0" layoutY="67.0" prefHeight="31.0" prefWidth="262.0" promptText="Password" />
             <TextField fx:id="loginPassword2" prefHeight="31.0" prefWidth="262.0" promptText="Password" translateX="47.0" translateY="70.0" visible="false">
                <cursor>
                   <Cursor fx:constant="NONE" />
