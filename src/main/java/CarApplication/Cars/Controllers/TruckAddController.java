@@ -1,18 +1,24 @@
 package CarApplication.Cars.Controllers;
-import CarApplication.Cars.CarTypes.Truck;
 
+import CarApplication.Cars.CarTypes.Truck;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 
 public class TruckAddController extends SellCarController{
 
-    double carKM = Double.parseDouble(txtCarKM.getText());
-    String carMake = txtCarMake.getText();
-    String carModel = txtCarModel.getText();
-    double carPrice = Double.parseDouble(txtCarPrice.getText());
-    String carVin = txtCarVin.getText();
-    int carYear = Integer.parseInt(txtCarYear.getText());
+    CarsData carsData = new CarsData();
+
+    Truck truck = null;
+
+
+    public void setTruck(Truck truck){
+        System.out.println("Setting truck " + truck);
+        this.truck=truck;
+    }
+
+    SellCarController sellcar = new SellCarController();
 
     @FXML
     private RadioButton bodyonframe;
@@ -42,9 +48,20 @@ public class TruckAddController extends SellCarController{
     private RadioButton trucksmall;
 
     @FXML
+    private Label txtValidate;
+
+    @FXML
     void addCar(ActionEvent event) {
-        Truck userAdd = new Truck(carMake, carVin, carModel, carPrice, carYear, carKM, hardtop(), truckSize(), frame(), offRoad());
-        carsList.add(userAdd);
+
+        truck.setHardTopCanopy(hardtop());
+        truck.setSize(truckSize());
+        truck.setFrame(frame());
+        truck.setOffRoad(offRoad());
+
+        carsData.writeCar(truck);
+
+        txtValidate.setText("Truck listed for sale!");
+
     }
 
     public boolean hardtop(){

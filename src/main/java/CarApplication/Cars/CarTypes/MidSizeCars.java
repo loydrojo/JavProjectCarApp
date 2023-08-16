@@ -1,6 +1,6 @@
 package CarApplication.Cars.CarTypes;
 
-public class MidSizeCars extends Cars {
+public class MidSizeCars extends Cars{
     private boolean coupe;
     private boolean convertible;
     private int doorNum;

@@ -1,6 +1,5 @@
 package CarApplication.User.Controllers;
 
-import CarApplication.User.List.User;
 import CarApplication.User.List.UserList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -11,6 +10,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 
@@ -43,14 +43,12 @@ public class RegisterPageController {
         this.userList = userList;
     }
 
-    public void register() {
+    public void registerBTN() {
         String firstName = registerFirstName.getText();
         String lastName = registerLastName.getText();
         String username = registerUsername.getText();
         String password = registerPassword.getText();
         String confirmPassword = registerConfirmPassword.getText();
-        User newUser = new User(username, password, firstName, lastName);
-
 
         if (firstName.isEmpty() || lastName.isEmpty() || username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
             showAlert("All fields are required.");
@@ -59,7 +57,6 @@ public class RegisterPageController {
         } else if (!password.equals(confirmPassword)) {
             showAlert("Passwords do not match.");
         } else {
-            userList.addUser(newUser);
             showAlert("Registration successful!");
             clearFields();
         }
@@ -68,8 +65,8 @@ public class RegisterPageController {
     @FXML
     void functionRegisterLoginBTN() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxmloader/views/MenuPage.fxml"));
-            AnchorPane menuPageLayout = loader.load();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxmloader/views/LoginPageV2.fxml"));
+            GridPane menuPageLayout = loader.load();
 
             Scene menuPageScene = new Scene(menuPageLayout);
             Stage primaryStage = (Stage) registerLoginBTN.getScene().getWindow();

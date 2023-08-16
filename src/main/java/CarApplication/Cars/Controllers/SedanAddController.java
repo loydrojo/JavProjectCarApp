@@ -22,16 +22,6 @@ public class SedanAddController extends SellCarController{
 
     SellCarController sellcar = new SellCarController();
 
-    public void initialize(){
-
-//        carKM = sedan.getMileage();
-        // double carKM = Double.parseDouble(txtCarKM.getText());
-        // String carMake = txtCarMake.getText();
-        // String carModel = txtCarModel.getText();
-        // double carPrice = Double.parseDouble(txtCarPrice.getText());
-        // String carVin = txtCarVin.getText();
-        // int carYear = Integer.parseInt(txtCarYear.getText());
-    }
     @FXML
     private RadioButton coupeyes;
 
@@ -79,8 +69,7 @@ public class SedanAddController extends SellCarController{
 
     @FXML
     void addCar(ActionEvent event) {
-        // Even when making the variables from SellCarContoller protected, these data members are null. 
-//        Sedan sedanUser = new Sedan(txtCarMake.getText(), txtCarVin.getText(), txtCarModel.getText(), Double.parseDouble(txtCarPrice.getText()), Integer.parseInt(txtCarYear.getText()), Double.parseDouble(txtCarKM.getText()), sedCoupe(), sedConv(), sedDoorNum(), sedSports(), sedTrunk());
+
         sedan.setCoupe(sedCoupe());
         sedan.setConvertible(sedConv());
         sedan.setDoorNum(sedDoorNum());
@@ -89,7 +78,7 @@ public class SedanAddController extends SellCarController{
 
         carsData.writeCar(sedan);
 
-        txtValidate.setText("Sedan listed for Sale!");
+        txtValidate.setText("Sedan listed for sale!");
     }
 
     @FXML

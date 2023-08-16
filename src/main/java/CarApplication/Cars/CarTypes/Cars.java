@@ -1,4 +1,5 @@
 package CarApplication.Cars.CarTypes;
+
 import java.io.Serializable;
 
 public class Cars implements Serializable {

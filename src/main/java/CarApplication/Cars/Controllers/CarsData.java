@@ -8,8 +8,6 @@ import java.util.*;
 
 public class CarsData {
 
-    // MidSizeCars mid1 = new MidSizeCars("Mazda", "MAZ123", "Mazda 3", 23000.50, 2023, 50000, false, false, 4);
-
     String carfile = "carlist.dat";
     public ArrayList<Cars> carsList;
 

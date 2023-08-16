@@ -18,10 +18,9 @@ public class HomePageController {
 
     @FXML
     private GridPane mainbody;
-
     @FXML
     void toSignInSignUpBTN(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("/Fxmloader/views/LogInPageV2.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/Fxmloader/views/LoginPageV2.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

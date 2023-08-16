@@ -1,7 +1,7 @@
 package CarApplication.User.Controllers;
 
-import CarApplication.User.List.UserList;
 import CarApplication.User.List.User;
+import CarApplication.User.List.UserList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class LoginPageController {
+public class LoginPageController extends UserList {
 
     @FXML
     private Button loginPageBTN;

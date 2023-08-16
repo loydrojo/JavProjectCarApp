@@ -1,13 +1,25 @@
 package CarApplication.Cars.Controllers;
 
-import CarApplication.Cars.CarTypes.SUV;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import CarApplication.Cars.CarTypes.SUV;
 
 public class SUVAddController extends SellCarController{
+
+    CarsData carsData = new CarsData();
+
+    SUV suv = null;
+
+
+    public void setSUV(SUV suv){
+        System.out.println("Setting SUV " + suv);
+        this.suv=suv;
+    }
+
+    SellCarController sellcar = new SellCarController();
 
     @FXML
     private RadioButton cargolarge;
@@ -30,44 +42,16 @@ public class SUVAddController extends SellCarController{
     @FXML
     private Label txtValidate;
 
-    double carKM = Double.parseDouble(txtCarKM.getText());
-    String carMake = txtCarMake.getText();
-    String carModel = txtCarModel.getText();
-    double carPrice = Double.parseDouble(txtCarPrice.getText());
-    String carVin = txtCarVin.getText();
-    int carYear = Integer.parseInt(txtCarYear.getText());
-
-    @FXML
-    private RadioButton bodyonframe;
-
-    @FXML
-    private RadioButton unibody;
-
-    @FXML
-    private RadioButton hardtopno;
-
-    @FXML
-    private RadioButton hardtopyes;
-
-    @FXML
-    private RadioButton offno;
-
-    @FXML
-    private RadioButton offyes;
-
-    @FXML
-    private RadioButton trucklarge;
-
-    @FXML
-    private RadioButton truckmedium;
-
-    @FXML
-    private RadioButton trucksmall;
 
     @FXML
     void addCar(ActionEvent event) {
-        SUV userAdd = new SUV(carMake, carVin, carModel, carPrice, carYear, carKM, slidingDoors(), entertainment(), cargo());
-        carsList.add(userAdd);
+        suv.setSlidingDoors(slidingDoors());
+        suv.setEntertainmentSystem(entertainment());
+        suv.setCargoSpaceSize(cargo());
+
+        carsData.writeCar(suv);
+
+        txtValidate.setText("SUV listed for sale!");
     }
 
     public boolean slidingDoors(){

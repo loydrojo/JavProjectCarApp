@@ -1,6 +1,6 @@
 package CarApplication.Cars.CarTypes;
 
-public class Truck extends Cars {
+public class Truck extends Cars{
     private boolean hardTopCanopy;
     private String size;
     // Mid-size or full-size
@@ -55,4 +55,3 @@ public class Truck extends Cars {
                 ", Off road: " + getOffRoad() + "\n";
     }
 }
-

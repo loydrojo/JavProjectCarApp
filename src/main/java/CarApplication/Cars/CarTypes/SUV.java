@@ -1,6 +1,6 @@
 package CarApplication.Cars.CarTypes;
 
-public class SUV extends Cars {
+public class SUV extends Cars{
     private boolean slidingDoors;
     private String cargoSpaceSize;
     private String entertainmentSystem;
@@ -42,6 +42,5 @@ public class SUV extends Cars {
                 ", Entertainment system: " + getEntertainmentSystem() + "\n";
     }
 }
-
 
 
