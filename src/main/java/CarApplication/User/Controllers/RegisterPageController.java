@@ -1,5 +1,7 @@
 package CarApplication.User.Controllers;
 
+import CarApplication.User.List.User;
+import CarApplication.User.List.UserList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -35,7 +37,11 @@ public class RegisterPageController {
     @FXML
     private TextField registerUsername;
 
+    private UserList userList; // Reference to the UserList instance
 
+    public void setUserList(UserList userList) {
+        this.userList = userList;
+    }
 
     public void register() {
         String firstName = registerFirstName.getText();
@@ -43,6 +49,8 @@ public class RegisterPageController {
         String username = registerUsername.getText();
         String password = registerPassword.getText();
         String confirmPassword = registerConfirmPassword.getText();
+        User newUser = new User(username, password, firstName, lastName);
+
 
         if (firstName.isEmpty() || lastName.isEmpty() || username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
             showAlert("All fields are required.");
@@ -51,6 +59,7 @@ public class RegisterPageController {
         } else if (!password.equals(confirmPassword)) {
             showAlert("Passwords do not match.");
         } else {
+            userList.addUser(newUser);
             showAlert("Registration successful!");
             clearFields();
         }

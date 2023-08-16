@@ -1,25 +1,22 @@
 package CarApplication.User.List;
 
-import java.util.ArrayList;
-import java.util.List;
+import CarApplication.User.List.User;
+import javafx.fxml.FXML;
 
+import java.util.HashMap;
+import java.util.Map;
 public class UserList {
-    private List<User> userList;
-
+    @FXML
+    private Map<String, User> userMap; // Use a Map to store users by username
     public UserList() {
-        userList = new ArrayList<>();
+        userMap = new HashMap<>();
     }
-
+@FXML
     public void addUser(User user) {
-        userList.add(user);
+        userMap.put(user.getUsername(), user);
     }
-
+@FXML
     public User findUserByUsername(String username) {
-        for (User user : userList) {
-            if (user.getUsername().equals(username)) {
-                return user;
-            }
-        }
-        return null;
+        return userMap.get(username);
     }
 }

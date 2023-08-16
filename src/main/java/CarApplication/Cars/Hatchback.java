@@ -1,6 +1,8 @@
 package CarApplication.Cars;
 
-public class Hatchback extends MidSizeCars{
+import CarApplication.Cars.CarTypes.MidSizeCars;
+
+public class Hatchback extends MidSizeCars {
     // Sub-compact or compact
     private String size;
 

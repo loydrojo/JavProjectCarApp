@@ -1,7 +1,5 @@
 package CarApplication.Cars.CarTypes;
 
-import CarApplication.Cars.MidSizeCars;
-
 public class Sedan extends MidSizeCars {
     private boolean sportsCar;
     private String trunkSize;

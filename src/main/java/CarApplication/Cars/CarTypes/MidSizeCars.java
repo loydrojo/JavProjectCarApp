@@ -1,6 +1,4 @@
-package CarApplication.Cars;
-
-import CarApplication.Cars.CarTypes.Cars;
+package CarApplication.Cars.CarTypes;
 
 public class MidSizeCars extends Cars {
     private boolean coupe;
@@ -44,4 +42,3 @@ public class MidSizeCars extends Cars {
         return super.toString() + ", Coupe: " + getCoupe() + ", Convertible: " + getConvertible() + ", Doors: " + doorNum();
     }
 }
-

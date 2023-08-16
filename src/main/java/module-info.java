@@ -3,7 +3,7 @@ module GitHubCarProj {
     requires javafx.fxml;
 
     opens CarApplication.User to javafx.fxml;
-    exports CarApplication.User;
+
 
     exports CarApplication.User.Controllers;
     opens CarApplication.User.Controllers to javafx.fxml;

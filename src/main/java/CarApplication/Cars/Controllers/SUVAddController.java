@@ -1,14 +1,13 @@
 package CarApplication.Cars.Controllers;
-import CarApplication.Cars.CarTypes.SUV;
 
+import CarApplication.Cars.CarTypes.SUV;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 
-public class SUVAddController extends SellCarController {
+public class SUVAddController extends SellCarController{
 
     @FXML
     private RadioButton cargolarge;

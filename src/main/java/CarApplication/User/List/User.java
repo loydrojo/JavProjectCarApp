@@ -16,4 +16,7 @@ public class User {
         return username;
     }
 
+    public Object getPassword() {
+        return this.password;
+    }
 }
